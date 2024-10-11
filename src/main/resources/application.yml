@@ -15,10 +15,10 @@ spring:
     ##show-sql: true
     ##  Hibernate DDL create, update...
     hibernate:
-      ddl-auto: create-drop
+      ddl-auto: update
     ## Generation du schemat de la base de donnee;
-    properties:
-      hibernate:
-        dialect: org.hibernate.dialect.PostgreSQLDialect
+#    properties:
+#      hibernate:
+#        dialect: org.hibernate.dialect.PostgreSQLDialect
 server:
   port: 8080
