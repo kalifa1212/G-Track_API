@@ -20,7 +20,7 @@ public class Gaz extends AbstractEntity{
      */
     private static final long serialVersionUID = 1L;
     private String fabricant;
-    private type type;
+    private TypeGaz type;
     @ManyToOne
     private Distributeur distributeur;
 }

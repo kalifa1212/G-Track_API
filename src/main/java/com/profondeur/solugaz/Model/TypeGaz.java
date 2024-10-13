@@ -1,6 +1,6 @@
 package com.profondeur.solugaz.Model;
 
-public enum type {
+public enum TypeGaz {
     ECO_GAZ,
     GAZ_12KG,
     GAZ_AUTRE

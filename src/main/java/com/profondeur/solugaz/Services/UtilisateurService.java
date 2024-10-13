@@ -1,12 +1,8 @@
 package com.profondeur.solugaz.Services;
 
 import com.profondeur.solugaz.Dto.UtilisateurDto;
-import com.profondeur.solugaz.Model.Utilisateur;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
-
-import java.io.UnsupportedEncodingException;
-import java.util.List;
 
 public interface    UtilisateurService {
 

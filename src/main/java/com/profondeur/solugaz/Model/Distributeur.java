@@ -24,7 +24,7 @@ public class Distributeur extends AbstractEntity{
      */
     private static final long serialVersionUID = 1L;
     private String nom;
-    private String Description;
+    private String description;
     private double longitude;
     private double latitude;
     private double altitude;
