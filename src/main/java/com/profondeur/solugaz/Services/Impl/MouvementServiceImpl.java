@@ -8,7 +8,9 @@ import com.profondeur.solugaz.Services.MouvementService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.stereotype.Service;
 
+@Service
 public class MouvementServiceImpl implements MouvementService {
 
     @Autowired
@@ -21,21 +23,22 @@ public class MouvementServiceImpl implements MouvementService {
     }
     @Override
     public MouvementDto save(MouvementDto dto) {
-        return null;
+
+        return MouvementDto.fromEntity(mouvementRepository.save(MouvementDto.toEntity(dto)));
     }
 
     @Override
     public MouvementDto findById(Integer id) {
-        return null;
+        return MouvementDto.fromEntity(mouvementRepository.findById(id).orElseThrow());
     }
 
     @Override
     public Page<MouvementDto> findAll(Pageable page) {
-        return null;
+        return mouvementRepository.findAll(page).map(MouvementDto::fromEntity);
     }
 
     @Override
     public void delete(Integer id) {
-
+        mouvementRepository.delete(mouvementRepository.findById(id).orElseThrow());
     }
 }

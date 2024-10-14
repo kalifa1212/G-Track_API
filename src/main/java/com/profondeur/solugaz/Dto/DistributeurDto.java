@@ -22,7 +22,7 @@ public class DistributeurDto {
     private double latitude;
     private double altitude;
     private LocalisationDto localisation;
-    private Set<GazDto> pointsDeVente;
+    private Set<GazDto> gaz;
     private StockDto stock;
 
     public static DistributeurDto fromEntity(Distributeur distributeur) {

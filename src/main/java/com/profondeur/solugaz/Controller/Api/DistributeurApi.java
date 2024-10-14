@@ -35,6 +35,10 @@ public interface DistributeurApi {
     @SecurityRequirement(name = "Bearer Authentication")
     @GetMapping(value=DISTRIBUTEUR_ENDPOINT+"findBy/id/{idutilisateur}")
     DistributeurDto findById(@PathVariable("idutilisateur") Integer id);
+    @Operation(summary = "Recherche ",description = "Recherche par Nom")
+    @SecurityRequirement(name = "Bearer Authentication")
+    @GetMapping(value=DISTRIBUTEUR_ENDPOINT+"findBy/nom/{nom}")
+    DistributeurDto findByNom(@PathVariable("nom") String nom);
 
     @Operation(summary = "Recherche ",description = "afficher")
     @SecurityRequirement(name = "Bearer Authentication")

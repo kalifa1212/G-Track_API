@@ -38,7 +38,7 @@ public interface GazApi {
     @Operation(summary = "Recherche ",description = "afficher")
     @SecurityRequirement(name = "Bearer Authentication")
     @GetMapping(value=GAZ_ENDPOINT+"find/all",produces= MediaType.APPLICATION_JSON_VALUE)
-    Page<GazDto> findAll(@RequestParam(required = false,defaultValue = "nom") String sortColumn,
+    Page<GazDto> findAll(@RequestParam(required = false,defaultValue = "fabricant") String sortColumn,
                                   @RequestParam(defaultValue = "0") int page,
                                   @RequestParam(defaultValue = "2") int taille,
                                   @RequestParam(defaultValue = "ascending") String sortDirection);

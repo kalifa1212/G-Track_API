@@ -11,4 +11,5 @@ public interface GazService {
     GazDto findByType(String email);
     GazDto findByDistributeur(DistributeurDto dto);
     Page<GazDto> findAll(Pageable page);
+    void delete(Integer id);
 }

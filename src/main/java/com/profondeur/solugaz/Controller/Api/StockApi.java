@@ -38,7 +38,7 @@ public interface StockApi {
     @Operation(summary = "Recherche ",description = "afficher")
     @SecurityRequirement(name = "Bearer Authentication")
     @GetMapping(value=STOCK_ENDPOINT+"find/all",produces= MediaType.APPLICATION_JSON_VALUE)
-    Page<StockDto> findAll(@RequestParam(required = false,defaultValue = "nom") String sortColumn,
+    Page<StockDto> findAll(@RequestParam(required = false,defaultValue = "date") String sortColumn,
                                   @RequestParam(defaultValue = "0") int page,
                                   @RequestParam(defaultValue = "2") int taille,
                                   @RequestParam(defaultValue = "ascending") String sortDirection);
