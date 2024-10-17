@@ -18,7 +18,7 @@ public class GazDto {
     private Integer id;
     private String fabricant;
     private TypeGaz type;
-    private DistributeurDto distributeur;
+    //private DistributeurDto distributeur;
 
     public static GazDto fromEntity(Gaz gaz) {
         if(gaz==null) {
@@ -28,7 +28,7 @@ public class GazDto {
                 .id(gaz.getId())
                 .fabricant(gaz.getFabricant())
                 .type(gaz.getType())
-                .distributeur(DistributeurDto.fromEntity(gaz.getDistributeur()))
+                //.distributeur(DistributeurDto.fromEntity(gaz.getDistributeur()))
                 .build();
     }
     public static Gaz toEntity(GazDto gazDto) {
@@ -40,7 +40,7 @@ public class GazDto {
         gaz.setId(gazDto.getId());
         gaz.setType(gazDto.getType());
         gaz.setFabricant(gazDto.getFabricant());
-        gaz.setDistributeur(DistributeurDto.toEntity(gazDto.getDistributeur()));
+        //gaz.setDistributeur(DistributeurDto.toEntity(gazDto.getDistributeur()));
         return gaz;
     }
 }

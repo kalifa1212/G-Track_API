@@ -31,8 +31,8 @@ public class Distributeur extends AbstractEntity{
 
     @ManyToOne
     private Localisation localisation;
+//    @OneToMany(mappedBy = "distributeur")
+//    private Set<Gaz> pointsDeVente;
     @OneToMany(mappedBy = "distributeur")
-    private Set<Gaz> pointsDeVente;
-    @ManyToOne
-    private Stock stock;
+    private Set<Stock> stock;
 }

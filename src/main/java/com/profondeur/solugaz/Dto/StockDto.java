@@ -1,5 +1,6 @@
 package com.profondeur.solugaz.Dto;
 
+import com.profondeur.solugaz.Model.Distributeur;
 import com.profondeur.solugaz.Model.Gaz;
 import com.profondeur.solugaz.Model.Stock;
 import jakarta.persistence.ManyToOne;
@@ -21,6 +22,7 @@ public class StockDto {
     private Date date;
     private String motif;
     private GazDto gaz;
+    private DistributeurDto distributeur;
 
     public static StockDto fromEntity(Stock stock) {
         if(stock==null) {
@@ -32,6 +34,7 @@ public class StockDto {
                 .date(stock.getDate())
                 .motif(stock.getMotif())
                 .gaz(GazDto.fromEntity(stock.getGaz()))
+                .distributeur(DistributeurDto.fromEntity(stock.getDistributeur()))
                 .build();
     }
     public static Stock toEntity(StockDto stockDto) {
@@ -45,6 +48,7 @@ public class StockDto {
         stock.setQuantite(stockDto.getQuantite());
         stock.setMotif(stockDto.getMotif());
         stock.setGaz(GazDto.toEntity(stockDto.getGaz()));
+        stock.setDistributeur(DistributeurDto.toEntity(stockDto.getDistributeur()));
         return stock;
     }
 }
