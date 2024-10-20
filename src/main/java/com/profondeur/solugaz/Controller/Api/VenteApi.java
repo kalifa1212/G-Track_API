@@ -2,6 +2,7 @@ package com.profondeur.solugaz.Controller.Api;
 
 import com.profondeur.solugaz.Dto.DistributeurDto;
 import com.profondeur.solugaz.Dto.VenteDto;
+import com.profondeur.solugaz.Model.TypeGaz;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.media.Schema;
@@ -12,6 +13,8 @@ import org.springframework.data.domain.Page;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 import static com.profondeur.solugaz.Constant.Constants.*;
 
@@ -34,6 +37,30 @@ public interface VenteApi {
     @SecurityRequirement(name = "Bearer Authentication")
     @GetMapping(value=VENTE_ENDPOINT+"findBy/id/{idutilisateur}")
     VenteDto findById(@PathVariable("idutilisateur") Integer id);
+    @Operation(summary = "Recherche ",description = "Recherche par ID")
+    @SecurityRequirement(name = "Bearer Authentication")
+    @GetMapping(value=VENTE_ENDPOINT+"findBy/gaz/{id}")
+    List<VenteDto> findVenteByGaz(@PathVariable("id") Integer id);
+    @Operation(summary = "Recherche ",description = "Recherche par ID")
+    @SecurityRequirement(name = "Bearer Authentication")
+    @GetMapping(value=VENTE_ENDPOINT+"findBy/distributeur/{id}")
+    List<VenteDto> findVenteByDistributeur(@PathVariable("id") Integer id);
+    @Operation(summary = "Recherche ",description = "Recherche par ID")
+    @SecurityRequirement(name = "Bearer Authentication")
+    @GetMapping(value=VENTE_ENDPOINT+"findBy/localisation/{id}")
+    List<VenteDto> findVenteByLocalisationId(@PathVariable("id") Integer id);
+    @Operation(summary = "Recherche ",description = "Recherche par ID")
+    @SecurityRequirement(name = "Bearer Authentication")
+    @GetMapping(value=VENTE_ENDPOINT+"findBy/localisationDetails/")
+    List<VenteDto> findVentesByLocalisationDetail(@RequestParam() Integer idLocalisation,
+                                                  @RequestParam() TypeGaz typeGaz,
+                                                  @RequestParam() String fabricant);
+    @Operation(summary = "Recherche ",description = "Recherche par ID")
+    @SecurityRequirement(name = "Bearer Authentication")
+    @GetMapping(value=VENTE_ENDPOINT+"findBy/distributeurDetails/")
+    List<VenteDto> findVentesBydistributeurDetails(@RequestParam() Integer idDistributeur,
+                                                   @RequestParam() TypeGaz typeGaz,
+                                                   @RequestParam() String fabricant);
 
     @Operation(summary = "Recherche ",description = "afficher")
     @SecurityRequirement(name = "Bearer Authentication")

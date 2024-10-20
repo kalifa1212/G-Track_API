@@ -1,7 +1,6 @@
 package com.profondeur.solugaz.Controller.Api;
 
 import com.profondeur.solugaz.Dto.DistributeurDto;
-import com.profondeur.solugaz.Dto.UtilisateurDto;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.media.Schema;
@@ -14,7 +13,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import static com.profondeur.solugaz.Constant.Constants.DISTRIBUTEUR_ENDPOINT;
-import static com.profondeur.solugaz.Constant.Constants.UTILISATEUR_ENDPOINT;
 
 @CrossOrigin(origins = "*")
 public interface DistributeurApi {
@@ -38,7 +36,17 @@ public interface DistributeurApi {
     @Operation(summary = "Recherche ",description = "Recherche par Nom")
     @SecurityRequirement(name = "Bearer Authentication")
     @GetMapping(value=DISTRIBUTEUR_ENDPOINT+"findBy/nom/{nom}")
-    DistributeurDto findByNom(@PathVariable("nom") String nom);
+    Page<DistributeurDto> findByNom(@PathVariable("nom") String nom,@RequestParam(required = false,defaultValue = "nom") String sortColumn,
+                                    @RequestParam(defaultValue = "0") int page,
+                                    @RequestParam(defaultValue = "2") int taille,
+                                    @RequestParam(defaultValue = "ascending") String sortDirection);
+    @Operation(summary = "Recherche ",description = "Recherche par Nom")
+    @SecurityRequirement(name = "Bearer Authentication")
+    @GetMapping(value=DISTRIBUTEUR_ENDPOINT+"findBy/ville/{ville}")
+    Page<DistributeurDto> findByVille(@PathVariable("ville") String ville,@RequestParam(required = false,defaultValue = "nom") String sortColumn,
+                                      @RequestParam(defaultValue = "0") int page,
+                                      @RequestParam(defaultValue = "2") int taille,
+                                      @RequestParam(defaultValue = "ascending") String sortDirection);
 
     @Operation(summary = "Recherche ",description = "afficher")
     @SecurityRequirement(name = "Bearer Authentication")

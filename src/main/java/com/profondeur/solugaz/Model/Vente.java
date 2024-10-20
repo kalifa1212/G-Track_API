@@ -24,8 +24,8 @@ public class Vente extends AbstractEntity{
     private static final long serialVersionUID = 1L;
     private Date dateVendu;
     private int quantite;
-    private BigDecimal  prix;
-    private BigDecimal prixUnitaire;
+    private int  prix;
+    private int prixUnitaire;
 
     @ManyToOne
     private Localisation localisation;

@@ -2,6 +2,7 @@ package com.profondeur.solugaz.Controller;
 
 import com.profondeur.solugaz.Controller.Api.VenteApi;
 import com.profondeur.solugaz.Dto.VenteDto;
+import com.profondeur.solugaz.Model.TypeGaz;
 import com.profondeur.solugaz.Services.DistributeurService;
 import com.profondeur.solugaz.Services.VenteService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,6 +12,8 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RestController;
+
+import java.util.List;
 
 @RestController
 public class VenteController implements VenteApi {
@@ -32,6 +35,31 @@ public class VenteController implements VenteApi {
     @Override
     public VenteDto findById(Integer id) {
         return venteService.findById(id);
+    }
+
+    @Override
+    public List<VenteDto> findVenteByGaz(Integer id) {
+        return venteService.findVenteByGaz(id);
+    }
+
+    @Override
+    public List<VenteDto> findVenteByDistributeur(Integer id) {
+        return venteService.findVenteByDistributeur(id);
+    }
+
+    @Override
+    public List<VenteDto> findVenteByLocalisationId(Integer id) {
+        return venteService.findVenteByLocalisationId(id);
+    }
+
+    @Override
+    public List<VenteDto> findVentesByLocalisationDetail(Integer idLocalisation, TypeGaz typeGaz, String fabricant) {
+        return venteService.findVentesByLocalisationDetail(idLocalisation,typeGaz,fabricant);
+    }
+
+    @Override
+    public List<VenteDto> findVentesBydistributeurDetails(Integer idDistributeur, TypeGaz typeGaz, String fabricant) {
+        return venteService.findVentesBydistributeurDetails(idDistributeur, typeGaz, fabricant);
     }
 
     @Override

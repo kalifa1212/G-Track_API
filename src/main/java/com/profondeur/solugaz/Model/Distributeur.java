@@ -1,9 +1,6 @@
 package com.profondeur.solugaz.Model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.ManyToOne;
-import jakarta.persistence.OneToMany;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -31,8 +28,6 @@ public class Distributeur extends AbstractEntity{
 
     @ManyToOne
     private Localisation localisation;
-//    @OneToMany(mappedBy = "distributeur")
-//    private Set<Gaz> pointsDeVente;
-    @OneToMany(mappedBy = "distributeur")
+    @OneToMany(mappedBy = "distributeur",fetch = FetchType.EAGER)
     private Set<Stock> stock;
 }

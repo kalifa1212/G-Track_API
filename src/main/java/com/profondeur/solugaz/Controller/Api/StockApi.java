@@ -2,6 +2,7 @@ package com.profondeur.solugaz.Controller.Api;
 
 import com.profondeur.solugaz.Dto.DistributeurDto;
 import com.profondeur.solugaz.Dto.StockDto;
+import com.profondeur.solugaz.Model.TypeGaz;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.media.Schema;
@@ -12,6 +13,8 @@ import org.springframework.data.domain.Page;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 import static com.profondeur.solugaz.Constant.Constants.*;
 
@@ -42,6 +45,22 @@ public interface StockApi {
                                   @RequestParam(defaultValue = "0") int page,
                                   @RequestParam(defaultValue = "2") int taille,
                                   @RequestParam(defaultValue = "ascending") String sortDirection);
+
+    @Operation(summary = "Recherche ",description = "afficher")
+    @SecurityRequirement(name = "Bearer Authentication")
+    @GetMapping(value=STOCK_ENDPOINT+"findBy/fabricant",produces= MediaType.APPLICATION_JSON_VALUE)
+    Page<StockDto> findByGazFabricant(@RequestParam(required = false,defaultValue = "date") String sortColumn,
+                           @RequestParam(defaultValue = "0") int page,
+                           @RequestParam(defaultValue = "2") int taille,
+                           @RequestParam(defaultValue = "ascending") String sortDirection,
+                           @RequestParam(defaultValue = "total") String fabricant
+                                      );
+    @Operation(summary = "Recherche ",description = "afficher ECO_GAZ,GAZ_12KG, GAZ_AUTRE")
+    @SecurityRequirement(name = "Bearer Authentication")
+    @GetMapping(value=STOCK_ENDPOINT+"findBy/type",produces= MediaType.APPLICATION_JSON_VALUE)
+    List<StockDto> findStock(@RequestParam(required = false,defaultValue = "5") int quantite,
+                            @RequestParam(defaultValue = "GAZ_12KG") TypeGaz typeGaz,
+                            @RequestParam(defaultValue = "total") String fabricant);
 
 
     // TODO delete

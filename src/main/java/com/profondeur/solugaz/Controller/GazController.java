@@ -2,6 +2,7 @@ package com.profondeur.solugaz.Controller;
 
 import com.profondeur.solugaz.Controller.Api.GazApi;
 import com.profondeur.solugaz.Dto.GazDto;
+import com.profondeur.solugaz.Model.TypeGaz;
 import com.profondeur.solugaz.Services.DistributeurService;
 import com.profondeur.solugaz.Services.GazService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,6 +12,8 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RestController;
+
+import java.util.List;
 
 @RestController
 public class GazController implements GazApi {
@@ -32,6 +35,16 @@ public class GazController implements GazApi {
     @Override
     public GazDto findById(Integer id) {
         return gazService.findById(id);
+    }
+
+    @Override
+    public List<GazDto> findByType(TypeGaz type) {
+        return gazService.findByType(type);
+    }
+
+    @Override
+    public List<GazDto> findByFabricant(String fabricant) {
+        return gazService.findByFabricant(fabricant);
     }
 
     @Override

@@ -32,9 +32,19 @@ public class DistributeurController implements DistributeurApi {
     }
 
     @Override
-    public DistributeurDto findByNom(String nom) {
-        return null;
+    public Page<DistributeurDto> findByNom(String nom, String sortColumn, int page, int taille, String sortDirection) {
+        Pageable paging = PageRequest.of(page, taille, Sort.by(sortColumn).ascending());
+
+        return distributeurService.findByNom(paging,nom);
     }
+
+    @Override
+    public Page<DistributeurDto> findByVille(String ville, String sortColumn, int page, int taille, String sortDirection) {
+        Pageable paging = PageRequest.of(page, taille, Sort.by(sortColumn).ascending());
+
+        return distributeurService.findByville(paging,ville);
+    }
+
 
     @Override
     public Page<DistributeurDto> findAll(String sortColumn, int page, int taille, String sortDirection) {

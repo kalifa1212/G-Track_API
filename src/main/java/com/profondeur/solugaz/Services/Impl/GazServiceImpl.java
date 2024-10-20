@@ -4,6 +4,7 @@ import com.profondeur.solugaz.Dto.DistributeurDto;
 import com.profondeur.solugaz.Dto.GazDto;
 import com.profondeur.solugaz.Exceptions.ErrorCodes;
 import com.profondeur.solugaz.Exceptions.InvalidEntityException;
+import com.profondeur.solugaz.Model.TypeGaz;
 import com.profondeur.solugaz.Repository.DistributeurRepository;
 import com.profondeur.solugaz.Repository.GazRepository;
 import com.profondeur.solugaz.Repository.RoleRepository;
@@ -16,6 +17,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Slf4j
 @Service
@@ -55,13 +57,13 @@ public class GazServiceImpl implements GazService {
     }
 
     @Override
-    public GazDto findByType(String email) {
-        return null;
+    public List<GazDto> findByType(TypeGaz type) {
+        return gazRepository.findAllByType(type).stream().map(GazDto::fromEntity).collect(Collectors.toList());
     }
 
     @Override
-    public GazDto findByDistributeur(DistributeurDto dto) {
-        return null;
+    public List<GazDto> findByFabricant(String fabricant) {
+        return gazRepository.findAllByFabricant(fabricant).stream().map(GazDto::fromEntity).collect(Collectors.toList());
     }
 
     @Override
