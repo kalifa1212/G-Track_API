@@ -8,7 +8,7 @@ import org.springframework.data.jpa.repository.EntityGraph;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface DistributeurRepository extends JpaRepository<Distributeur, Integer> {
-    //@EntityGraph(value = "distributeur.stock")
+    //@EntityGraph(value = "distributeur.stock") //a revoir
     Page<Distributeur> findAll(Pageable pageable);
     Page<Distributeur> findAllByLocalisationVille(Pageable pageable,String ville);
     Page<Distributeur> findAllByNomContaining(Pageable pageable,String nom);
