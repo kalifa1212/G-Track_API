@@ -8,6 +8,7 @@ public interface Constants {
 	public static String AUTHENTICATION_ENDPOINT=APP_ROOT+"authentication/";
 	public static String FILE_ENDPOINT=APP_ROOT+"file/";
 	public static String DISTRIBUTEUR_ENDPOINT=APP_ROOT+"distributeur/";
+	public static String DATA_ENDPOINT=APP_ROOT+"data/";
 	public static String GAZ_ENDPOINT=APP_ROOT+"gaz/";
 	public static String NOTIFICATION_ENDPOINT=APP_ROOT+"notification/";
 	public static String LOCALISATION_ENDPOINT=APP_ROOT+"localisation/";

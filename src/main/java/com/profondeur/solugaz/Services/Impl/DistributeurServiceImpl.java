@@ -1,13 +1,13 @@
 package com.profondeur.solugaz.Services.Impl;
 
 import com.profondeur.solugaz.Dto.DistributeurDto;
-import com.profondeur.solugaz.Dto.StockDto;
-import com.profondeur.solugaz.Dto.UtilisateurDto;
 import com.profondeur.solugaz.Exceptions.EntityNotFoundException;
 import com.profondeur.solugaz.Exceptions.ErrorCodes;
 import com.profondeur.solugaz.Exceptions.InvalidEntityException;
 import com.profondeur.solugaz.Model.Distributeur;
+import com.profondeur.solugaz.Model.Localisation;
 import com.profondeur.solugaz.Repository.DistributeurRepository;
+import com.profondeur.solugaz.Repository.LocalisationRepository;
 import com.profondeur.solugaz.Services.DistributeurService;
 import com.profondeur.solugaz.Services.StockService;
 import lombok.extern.slf4j.Slf4j;
@@ -18,7 +18,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
+import java.util.Optional;
 
 @Slf4j
 @Service
@@ -26,14 +26,18 @@ public class DistributeurServiceImpl implements DistributeurService {
 
     @Autowired
     private DistributeurRepository distributeurRepository;
+    @Autowired
+    private LocalisationRepository localisationRepository;
     private StockService stockService;
     @Autowired
     public DistributeurServiceImpl(
             DistributeurRepository distributeurRepository,
-            StockService stockService
+            StockService stockService,
+            LocalisationRepository localisationRepository
     ) {
         this.distributeurRepository=distributeurRepository;
         this.stockService=stockService;
+        this.localisationRepository=localisationRepository;
     }
 
     @Override
@@ -44,6 +48,11 @@ public class DistributeurServiceImpl implements DistributeurService {
         }
         if (dto.getLocalisation()==null){
             errors.add("Entrer une localisation");
+        }else{
+            Optional<Localisation> local = localisationRepository.findById(dto.getLocalisation().getId());
+            if(local.isEmpty()){
+                throw new InvalidEntityException("Localisation n'existe pas ", ErrorCodes.LOCALISATION_NOT_FOUND,errors);
+            }
         }
         if(!errors.isEmpty()) {
             log.error("Distributeur non valide");
