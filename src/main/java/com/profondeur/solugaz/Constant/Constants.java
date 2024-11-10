@@ -2,7 +2,7 @@ package com.profondeur.solugaz.Constant;
 
 public interface Constants {
 	
-	public static String APP_ROOT="muslimApi/v1/";
+	public static String APP_ROOT="SolugazApi/v1/";
 	public static String STOCK_ENDPOINT=APP_ROOT+"stock/";
 	public static String VENTE_ENDPOINT=APP_ROOT+"vente/";
 	public static String AUTHENTICATION_ENDPOINT=APP_ROOT+"authentication/";

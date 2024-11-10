@@ -77,6 +77,13 @@
 <!--            <artifactId>hibernate-spatial</artifactId>-->
 <!--            <version>6.5.2.Final</version>-->
 <!--        </dependency>-->
+
+<!--            jwt dependance-->
+        <dependency>
+            <groupId>io.jsonwebtoken</groupId>
+            <artifactId>jjwt</artifactId>
+            <version>0.9.1</version>
+        </dependency>
         <dependency>
             <groupId>nz.ac.waikato.cms.weka</groupId>
             <artifactId>weka-dev</artifactId>

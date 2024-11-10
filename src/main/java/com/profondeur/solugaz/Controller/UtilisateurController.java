@@ -30,7 +30,6 @@ import java.util.Optional;
 @Slf4j
 public class UtilisateurController implements UtilisateurApi {
 
-
     private UtilisateurRepository utilisateurRepository;
     private UtilisateurService utilisateurService;
 
@@ -46,9 +45,10 @@ public class UtilisateurController implements UtilisateurApi {
 
     public ResponseEntity<AuthenticationResponse> authentification(@RequestBody AuthenticationRequest authenticationRequest) {
 
-
-            return ResponseEntity.ok(AuthenticationResponse.builder().accessToken("jwt token here").email(authenticationRequest.getLogin()).build());
-
+        return ResponseEntity.ok(AuthenticationResponse.builder()
+                .accessToken("")
+                .email("email")
+                .build());
     }
 
     @Override
