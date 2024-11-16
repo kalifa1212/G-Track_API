@@ -1,14 +1,12 @@
 package com.profondeur.solugaz.Dto;
 
-import com.profondeur.solugaz.Model.Distributeur;
-import com.profondeur.solugaz.Model.TypeGaz;
+import com.profondeur.solugaz.Model.Enum.Fabricant;
+import com.profondeur.solugaz.Model.Enum.TypeGaz;
 import com.profondeur.solugaz.Model.Gaz;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
-import java.util.stream.Collectors;
 
 @Data
 @Builder
@@ -16,7 +14,7 @@ import java.util.stream.Collectors;
 @NoArgsConstructor
 public class GazDto {
     private Integer id;
-    private String fabricant;
+    private Fabricant fabricant;
     private TypeGaz type;
     //private DistributeurDto distributeur;
 

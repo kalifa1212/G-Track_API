@@ -1,13 +1,11 @@
 package com.profondeur.solugaz.Services.Impl;
 
-import com.profondeur.solugaz.Dto.DistributeurDto;
 import com.profondeur.solugaz.Dto.GazDto;
 import com.profondeur.solugaz.Exceptions.ErrorCodes;
 import com.profondeur.solugaz.Exceptions.InvalidEntityException;
-import com.profondeur.solugaz.Model.TypeGaz;
-import com.profondeur.solugaz.Repository.DistributeurRepository;
+import com.profondeur.solugaz.Model.Enum.Fabricant;
+import com.profondeur.solugaz.Model.Enum.TypeGaz;
 import com.profondeur.solugaz.Repository.GazRepository;
-import com.profondeur.solugaz.Repository.RoleRepository;
 import com.profondeur.solugaz.Services.GazService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -62,7 +60,7 @@ public class GazServiceImpl implements GazService {
     }
 
     @Override
-    public List<GazDto> findByFabricant(String fabricant) {
+    public List<GazDto> findByFabricant(Fabricant fabricant) {
         return gazRepository.findAllByFabricant(fabricant).stream().map(GazDto::fromEntity).collect(Collectors.toList());
     }
 

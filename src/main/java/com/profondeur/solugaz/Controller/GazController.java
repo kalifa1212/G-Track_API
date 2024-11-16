@@ -2,8 +2,8 @@ package com.profondeur.solugaz.Controller;
 
 import com.profondeur.solugaz.Controller.Api.GazApi;
 import com.profondeur.solugaz.Dto.GazDto;
-import com.profondeur.solugaz.Model.TypeGaz;
-import com.profondeur.solugaz.Services.DistributeurService;
+import com.profondeur.solugaz.Model.Enum.Fabricant;
+import com.profondeur.solugaz.Model.Enum.TypeGaz;
 import com.profondeur.solugaz.Services.GazService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -44,7 +44,19 @@ public class GazController implements GazApi {
 
     @Override
     public List<GazDto> findByFabricant(String fabricant) {
-        return gazService.findByFabricant(fabricant);
+        if (fabricant.equals(Fabricant.CAMGAZ))
+        {
+            return gazService.findByFabricant(Fabricant.CAMGAZ);
+        }
+        if (fabricant.equals(Fabricant.TOTAL))
+        {
+            return gazService.findByFabricant(Fabricant.TOTAL);
+        }
+        if (fabricant.equals(Fabricant.TRADEX))
+        {
+            return gazService.findByFabricant(Fabricant.TRADEX);
+        }
+        return null;
     }
 
     @Override

@@ -1,5 +1,6 @@
 package com.profondeur.solugaz.Model;
 
+import com.profondeur.solugaz.Model.Enum.TypeMouvement;
 import jakarta.persistence.Entity;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;

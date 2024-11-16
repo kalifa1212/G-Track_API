@@ -1,8 +1,7 @@
 package com.profondeur.solugaz.Controller.Api;
 
-import com.profondeur.solugaz.Dto.DistributeurDto;
 import com.profondeur.solugaz.Dto.VenteDto;
-import com.profondeur.solugaz.Model.TypeGaz;
+import com.profondeur.solugaz.Model.Enum.TypeGaz;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.media.Schema;
@@ -22,7 +21,7 @@ import static com.profondeur.solugaz.Constant.Constants.*;
 public interface VenteApi {
 
     @SecurityRequirement(name = "Bearer Authentication")
-    @Operation(summary = "Enregistrer une Vente ",description = "permet d'enregistrer une vente")
+    @Operation(summary = "Enregistrer une Vente Sans commande",description = "permet d'enregistrer une vente")
     @ApiResponses(value={
             @ApiResponse(responseCode = "200",description = "Enregistrer",content = {
                     @Content(mediaType ="application/json",schema = @Schema(implementation = VenteDto.class))
@@ -32,6 +31,17 @@ public interface VenteApi {
     })
     @PostMapping(value = VENTE_ENDPOINT+"nouveau")
     ResponseEntity<VenteDto> save(@RequestBody VenteDto dto);
+    @SecurityRequirement(name = "Bearer Authentication")
+    @Operation(summary = "Vente Par commande ",description = "vente par commande")
+    @ApiResponses(value={
+            @ApiResponse(responseCode = "200",description = "Enregistrer",content = {
+                    @Content(mediaType ="application/json",schema = @Schema(implementation = VenteDto.class))
+            }),
+            @ApiResponse(responseCode = "401",description = " non Autoriser",content = @Content),
+            @ApiResponse(responseCode = "400",description = " Invalide",content = @Content)
+    })
+    @PostMapping(value = VENTE_ENDPOINT+"payment/nouveau")
+    ResponseEntity<VenteDto> commandePayment(@RequestBody Integer idCommande);
 
     @Operation(summary = "Recherche ",description = "Recherche par ID")
     @SecurityRequirement(name = "Bearer Authentication")

@@ -1,16 +1,15 @@
 package com.profondeur.solugaz.Services;
 
 import com.profondeur.solugaz.Dto.VenteDto;
-import com.profondeur.solugaz.Model.TypeGaz;
-import com.profondeur.solugaz.Model.Vente;
+import com.profondeur.solugaz.Model.Enum.TypeGaz;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
-import org.springframework.data.repository.query.Param;
 
 import java.util.List;
 
 public interface VenteService {
     VenteDto save(VenteDto  dto);
+    void commandePayment(Integer idCommande);
     VenteDto findById(Integer id);
     List<VenteDto> findVenteByGaz(Integer id);
     List<VenteDto> findVenteByDistributeur(Integer id);

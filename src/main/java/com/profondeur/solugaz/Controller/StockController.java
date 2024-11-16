@@ -2,8 +2,7 @@ package com.profondeur.solugaz.Controller;
 
 import com.profondeur.solugaz.Controller.Api.StockApi;
 import com.profondeur.solugaz.Dto.StockDto;
-import com.profondeur.solugaz.Model.TypeGaz;
-import com.profondeur.solugaz.Services.DistributeurService;
+import com.profondeur.solugaz.Model.Enum.TypeGaz;
 import com.profondeur.solugaz.Services.StockService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;

@@ -5,6 +5,8 @@ public interface Constants {
 	public static String APP_ROOT="SolugazApi/v1/";
 	public static String STOCK_ENDPOINT=APP_ROOT+"stock/";
 	public static String VENTE_ENDPOINT=APP_ROOT+"vente/";
+	public static String COMMANDE_ENDPOINT=APP_ROOT+"commande/";
+	public static String LIGNE_COMMANDE_ENDPOINT=APP_ROOT+"ligne_commande/";
 	public static String AUTHENTICATION_ENDPOINT=APP_ROOT+"authentication/";
 	public static String FILE_ENDPOINT=APP_ROOT+"file/";
 	public static String DISTRIBUTEUR_ENDPOINT=APP_ROOT+"distributeur/";

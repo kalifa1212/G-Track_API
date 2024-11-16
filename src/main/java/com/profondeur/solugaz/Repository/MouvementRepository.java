@@ -1,7 +1,7 @@
 package com.profondeur.solugaz.Repository;
 
 import com.profondeur.solugaz.Model.Mouvement;
-import com.profondeur.solugaz.Model.TypeMouvement;
+import com.profondeur.solugaz.Model.Enum.TypeMouvement;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;

@@ -1,8 +1,7 @@
 package com.profondeur.solugaz.Services;
 
 import com.profondeur.solugaz.Dto.MouvementDto;
-import com.profondeur.solugaz.Model.Mouvement;
-import com.profondeur.solugaz.Model.TypeMouvement;
+import com.profondeur.solugaz.Model.Enum.TypeMouvement;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 

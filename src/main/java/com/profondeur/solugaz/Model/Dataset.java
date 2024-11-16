@@ -1,13 +1,13 @@
 package com.profondeur.solugaz.Model;
 
+import com.profondeur.solugaz.Model.Enum.Fabricant;
+import com.profondeur.solugaz.Model.Enum.TypeGaz;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalDate;
-import java.util.Date;
 
 @Table(name = "dataset") @Entity
 @Data

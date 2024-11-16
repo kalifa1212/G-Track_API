@@ -2,7 +2,7 @@ package com.profondeur.solugaz.Controller.Api;
 
 import com.profondeur.solugaz.Dto.DistributeurDto;
 import com.profondeur.solugaz.Dto.GazDto;
-import com.profondeur.solugaz.Model.TypeGaz;
+import com.profondeur.solugaz.Model.Enum.TypeGaz;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.media.Schema;

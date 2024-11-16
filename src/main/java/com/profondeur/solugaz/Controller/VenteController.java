@@ -2,8 +2,7 @@ package com.profondeur.solugaz.Controller;
 
 import com.profondeur.solugaz.Controller.Api.VenteApi;
 import com.profondeur.solugaz.Dto.VenteDto;
-import com.profondeur.solugaz.Model.TypeGaz;
-import com.profondeur.solugaz.Services.DistributeurService;
+import com.profondeur.solugaz.Model.Enum.TypeGaz;
 import com.profondeur.solugaz.Services.VenteService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -30,6 +29,12 @@ public class VenteController implements VenteApi {
     @Override
     public ResponseEntity<VenteDto> save(VenteDto dto) {
         return ResponseEntity.ok(venteService.save(dto));
+    }
+
+    @Override
+    public ResponseEntity commandePayment(Integer idCommande) {
+        venteService.commandePayment(idCommande);
+        return (ResponseEntity) ResponseEntity.ok();
     }
 
     @Override

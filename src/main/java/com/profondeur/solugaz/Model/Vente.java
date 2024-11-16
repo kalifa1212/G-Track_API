@@ -14,9 +14,7 @@ import java.util.Date;
 @Table(name = "vente")
 @Entity
 @EqualsAndHashCode(callSuper=true)
-@Data
-@NoArgsConstructor
-@AllArgsConstructor
+@Data @NoArgsConstructor @AllArgsConstructor
 public class Vente extends AbstractEntity{
     /**
      *

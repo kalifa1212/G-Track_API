@@ -1,7 +1,7 @@
 package com.profondeur.solugaz.Services.Impl;
 
 import com.profondeur.solugaz.Dto.MouvementDto;
-import com.profondeur.solugaz.Model.TypeMouvement;
+import com.profondeur.solugaz.Model.Enum.TypeMouvement;
 import com.profondeur.solugaz.Repository.MouvementRepository;
 import com.profondeur.solugaz.Services.MouvementService;
 import org.springframework.beans.factory.annotation.Autowired;

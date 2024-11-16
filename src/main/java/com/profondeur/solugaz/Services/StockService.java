@@ -1,11 +1,9 @@
 package com.profondeur.solugaz.Services;
 
 import com.profondeur.solugaz.Dto.StockDto;
-import com.profondeur.solugaz.Model.Stock;
-import com.profondeur.solugaz.Model.TypeGaz;
+import com.profondeur.solugaz.Model.Enum.TypeGaz;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
-import org.springframework.data.repository.query.Param;
 
 import java.util.List;
 

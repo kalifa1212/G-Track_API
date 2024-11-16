@@ -1,8 +1,7 @@
 package com.profondeur.solugaz.Repository;
 
-import com.profondeur.solugaz.Model.Distributeur;
 import com.profondeur.solugaz.Model.Stock;
-import com.profondeur.solugaz.Model.TypeGaz;
+import com.profondeur.solugaz.Model.Enum.TypeGaz;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;

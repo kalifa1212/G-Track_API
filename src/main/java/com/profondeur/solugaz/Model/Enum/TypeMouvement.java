@@ -1,4 +1,4 @@
-package com.profondeur.solugaz.Model;
+package com.profondeur.solugaz.Model.Enum;
 
 public enum TypeMouvement {
     Entree, Sortie,Ajustement

@@ -5,9 +5,15 @@ import com.profondeur.solugaz.Dto.StockDto;
 import com.profondeur.solugaz.Dto.VenteDto;
 import com.profondeur.solugaz.Exceptions.ErrorCodes;
 import com.profondeur.solugaz.Exceptions.InvalidEntityException;
-import com.profondeur.solugaz.Model.TypeGaz;
-import com.profondeur.solugaz.Model.TypeMouvement;
-import com.profondeur.solugaz.Repository.MouvementRepository;
+import com.profondeur.solugaz.Model.Commande;
+import com.profondeur.solugaz.Model.Enum.PaymentMethode;
+import com.profondeur.solugaz.Model.Enum.PaymentStatus;
+import com.profondeur.solugaz.Model.Enum.TypeGaz;
+import com.profondeur.solugaz.Model.Enum.TypeMouvement;
+import com.profondeur.solugaz.Model.Gaz;
+import com.profondeur.solugaz.Model.LigneCommande;
+import com.profondeur.solugaz.Model.Payment;
+import com.profondeur.solugaz.Repository.CommandeRepository;
 import com.profondeur.solugaz.Repository.StockRepository;
 import com.profondeur.solugaz.Repository.VenteRepository;
 import com.profondeur.solugaz.Services.MouvementService;
@@ -19,10 +25,10 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
-import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Slf4j
@@ -33,6 +39,8 @@ public class VenteServiceImpl implements VenteService {
     private VenteRepository venteRepository;
     @Autowired
     private MouvementService mouvementService;
+    @Autowired
+    private CommandeRepository commandeRepository;
     @Autowired
     private StockService stockService;
     @Autowired
@@ -83,10 +91,55 @@ public class VenteServiceImpl implements VenteService {
         mouvementDto.setTypeMouvement(TypeMouvement.Sortie);
         mouvementDto.setQuantite(dto.getQuantite());
         mouvementDto.setStock(stockDto);
+        //TODO Payement
         //TODO Enregistremnet des entités
         stockService.save(stockDto);
         mouvementService.save(mouvementDto);
         return VenteDto.fromEntity(venteRepository.save(VenteDto.toEntity(dto)));
+    }
+
+    @Override
+    public void commandePayment(Integer idCommande) {
+        Optional<Commande> commande= commandeRepository.findById(idCommande);
+        if (commande.isEmpty()){
+            throw new InvalidEntityException("Commande introuvable");
+        }
+        Payment payment=new Payment();
+        Gaz[] listeGaz = new Gaz[0];
+        Integer[] idDistributeur = new Integer[0];
+        Integer[] quantite = new Integer[0];
+        double total_payment=0;
+        int i=0;
+        //TODO calcule de la somme a payer
+        for (LigneCommande ligneCommande: commande.get().getLigneCommande()){
+            total_payment=+ligneCommande.getQuantite()*ligneCommande.getPrix_unitaire();
+            idDistributeur[i]=ligneCommande.getDistributeur().getId();
+            listeGaz[i]=ligneCommande.getGaz();
+            quantite[i]= ligneCommande.getQuantite();
+            i++;
+
+        }
+        //TODO Mouvement de Stock
+        for(int j=0; j<=i; j++)
+        {
+            List<StockDto> listStock = stockRepository.findByGazIdAndDistributeurId(listeGaz[j].getId(),idDistributeur[j])
+                    .stream().map(StockDto::fromEntity).collect(Collectors.toList());
+            if (listStock.isEmpty()){
+                throw new InvalidEntityException("Aucune stock disponible pour ce distributeur ", ErrorCodes.STOCK_NOT_FOUND);
+            }
+            StockDto stockDto=listStock.get(0);
+            if (stockDto.getQuantite()<quantite[j]){
+                throw new InvalidEntityException("Quantité en stock insufisante our un element de la commande", ErrorCodes.STOCK_NOT_EXIST);
+            }
+            stockDto.setQuantite(stockDto.getQuantite()-quantite[j]);
+            stockService.save(stockDto);
+        }
+
+        payment.setIdCommande(idCommande);
+        payment.setPaymentMethode(PaymentMethode.ESPECE);
+        payment.setPaymentStatus(PaymentStatus.VALIDE);
+        payment.setMontant(total_payment);
+
     }
 
     @Override

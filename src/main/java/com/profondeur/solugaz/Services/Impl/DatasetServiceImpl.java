@@ -1,18 +1,14 @@
 package com.profondeur.solugaz.Services.Impl;
 
 import com.profondeur.solugaz.Model.Dataset;
-import com.profondeur.solugaz.Model.Fabricant;
-import com.profondeur.solugaz.Model.TypeGaz;
+import com.profondeur.solugaz.Model.Enum.Fabricant;
+import com.profondeur.solugaz.Model.Enum.TypeGaz;
 import com.profondeur.solugaz.Repository.DatasetRepository;
-import com.profondeur.solugaz.Repository.DistributeurRepository;
-import com.profondeur.solugaz.Repository.LocalisationRepository;
 import com.profondeur.solugaz.Services.DatasetService;
-import com.profondeur.solugaz.Services.StockService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
 import java.util.List;
