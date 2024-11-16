@@ -7,7 +7,7 @@ spring:
   datasource:
     url: jdbc:postgresql://localhost:5432/solugaz
     username: postgres
-    password:
+    password: dancali
     driver-class-name: org.postgresql.Driver
   application:
     name: Solugaz
@@ -15,7 +15,7 @@ spring:
     ##show-sql: true
     ##  Hibernate DDL create, update...
     hibernate:
-      ddl-auto: create
+      ddl-auto: update
     ## Generation du schemat de la base de donnee;
     properties:
       hibernate:

@@ -1,6 +1,7 @@
 package com.profondeur.solugaz.Dto;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.profondeur.solugaz.Model.Utilisateur;
 import lombok.AllArgsConstructor;
@@ -28,6 +29,7 @@ public class UtilisateurDto {
     private LocalisationDto localisation;
     private boolean enabled;
     private boolean isLocked;
+    //@JsonIgnore
     @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private Collection<RoleDto> roles;
 

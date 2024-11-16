@@ -13,9 +13,7 @@ import com.profondeur.solugaz.Model.Enum.TypeMouvement;
 import com.profondeur.solugaz.Model.Gaz;
 import com.profondeur.solugaz.Model.LigneCommande;
 import com.profondeur.solugaz.Model.Payment;
-import com.profondeur.solugaz.Repository.CommandeRepository;
-import com.profondeur.solugaz.Repository.StockRepository;
-import com.profondeur.solugaz.Repository.VenteRepository;
+import com.profondeur.solugaz.Repository.*;
 import com.profondeur.solugaz.Services.MouvementService;
 import com.profondeur.solugaz.Services.StockService;
 import com.profondeur.solugaz.Services.VenteService;
@@ -45,18 +43,26 @@ public class VenteServiceImpl implements VenteService {
     private StockService stockService;
     @Autowired
     private StockRepository stockRepository;
+    @Autowired
+    private LigneCommandeRepository ligneCommandeRepository;
+    @Autowired
+    private PaymentRepository paymentRepository;
 
     @Autowired
     public VenteServiceImpl(
             VenteRepository venteRepository,
+            PaymentRepository paymentRepository,
             MouvementService mouvementService,
             StockService stockService,
-            StockRepository stockRepository
+            StockRepository stockRepository,
+            LigneCommandeRepository ligneCommandeRepository
     ) {
         this.venteRepository=venteRepository;
         this.mouvementService=mouvementService;
         this.stockService=stockService;
         this.stockRepository=stockRepository;
+        this.ligneCommandeRepository=ligneCommandeRepository;
+        this.paymentRepository=paymentRepository;
     }
 
     @Override
@@ -105,23 +111,27 @@ public class VenteServiceImpl implements VenteService {
             throw new InvalidEntityException("Commande introuvable");
         }
         Payment payment=new Payment();
-        Gaz[] listeGaz = new Gaz[0];
-        Integer[] idDistributeur = new Integer[0];
-        Integer[] quantite = new Integer[0];
+        Gaz[] listeGaz = new Gaz[10];
+        Integer[] idDistributeur = new Integer[10];
+        Integer[] quantite = new Integer[10];
         double total_payment=0;
         int i=0;
+        commande.get().setLigneCommande(ligneCommandeRepository.findLigneCommandeByCommandeId(commande.get().getId()));
         //TODO calcule de la somme a payer
         for (LigneCommande ligneCommande: commande.get().getLigneCommande()){
+            log.error("i befoor {}",i);
             total_payment=+ligneCommande.getQuantite()*ligneCommande.getPrix_unitaire();
             idDistributeur[i]=ligneCommande.getDistributeur().getId();
             listeGaz[i]=ligneCommande.getGaz();
             quantite[i]= ligneCommande.getQuantite();
-            i++;
+            ++i;
+            log.info("i after= {} idDistributeur={} total ={} listeGaz={} quantite={}",i,idDistributeur,total_payment,listeGaz,quantite);
 
         }
         //TODO Mouvement de Stock
-        for(int j=0; j<=i; j++)
+        for(int j=0; j<i; j++)
         {
+            log.info("Mouvement de stock j= {}",j);
             List<StockDto> listStock = stockRepository.findByGazIdAndDistributeurId(listeGaz[j].getId(),idDistributeur[j])
                     .stream().map(StockDto::fromEntity).collect(Collectors.toList());
             if (listStock.isEmpty()){
@@ -139,6 +149,7 @@ public class VenteServiceImpl implements VenteService {
         payment.setPaymentMethode(PaymentMethode.ESPECE);
         payment.setPaymentStatus(PaymentStatus.VALIDE);
         payment.setMontant(total_payment);
+        paymentRepository.save(payment);
 
     }
 

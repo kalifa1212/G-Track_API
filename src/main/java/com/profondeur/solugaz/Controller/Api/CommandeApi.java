@@ -41,5 +41,5 @@ public interface CommandeApi {
             @ApiResponse(responseCode = "400",description = " Invalide",content = @Content)
     })
     @PostMapping(value = LIGNE_COMMANDE_ENDPOINT+"nouveau")
-    ResponseEntity<CommandeDto> saveLigneCommande(@RequestBody CommandeDto dto);
+    ResponseEntity<LigneCommandeDto> saveLigneCommande(@RequestBody LigneCommandeDto dto);
 }

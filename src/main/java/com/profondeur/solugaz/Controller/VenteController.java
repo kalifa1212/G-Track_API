@@ -32,9 +32,9 @@ public class VenteController implements VenteApi {
     }
 
     @Override
-    public ResponseEntity commandePayment(Integer idCommande) {
+    public ResponseEntity<String> commandePayment(Integer idCommande) {
         venteService.commandePayment(idCommande);
-        return (ResponseEntity) ResponseEntity.ok();
+        return  ResponseEntity.ok("Payement par commande validé");
     }
 
     @Override

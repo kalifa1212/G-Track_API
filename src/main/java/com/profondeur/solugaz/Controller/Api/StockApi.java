@@ -37,6 +37,11 @@ public interface StockApi {
     @GetMapping(value=STOCK_ENDPOINT+"findBy/id/{idutilisateur}")
     StockDto findById(@PathVariable("idutilisateur") Integer id);
 
+    @Operation(summary = "Recherche ",description = "Recherche par ID distributeur")
+    @SecurityRequirement(name = "Bearer Authentication")
+    @GetMapping(value=STOCK_ENDPOINT+"findBy/id/distributeur/{iddistributeur}")
+    List<StockDto> findByDistributeurId(@PathVariable("iddistributeur") Integer id);
+
     @Operation(summary = "Recherche ",description = "afficher")
     @SecurityRequirement(name = "Bearer Authentication")
     @GetMapping(value=STOCK_ENDPOINT+"find/all",produces= MediaType.APPLICATION_JSON_VALUE)

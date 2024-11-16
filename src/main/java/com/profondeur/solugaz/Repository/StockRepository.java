@@ -14,6 +14,7 @@ public interface StockRepository extends JpaRepository<Stock, Integer> {
 
     Page<Stock> findAll(Pageable pageable);
     Page<Stock> findAllByGazFabricant(Pageable pageable,String fabricant);
+    List<Stock> findStocksByDistributeurId(Integer id);
     @Query("SELECT s FROM Stock s INNER JOIN s.gaz g WHERE s.quantite > :quantite AND g.type = :typeGaz AND g.fabricant = :fabricant")
     List<Stock> findStocks(@Param("quantite") int quantite,@Param("typeGaz") TypeGaz typeGaz,@Param("fabricant") String fabricant);
     List<Stock> findByGazIdAndDistributeurId(Integer gazId, Integer distributeurId);

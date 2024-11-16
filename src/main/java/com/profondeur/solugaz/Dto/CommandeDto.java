@@ -35,7 +35,7 @@ public class CommandeDto {
                 .status(commande.getStatus())
                 .reference(commande.getReference())
                 .utilisateur(UtilisateurDto.fromEntity(commande.getUtilisateur()))
-                .ligneCommande(commande.getLigneCommande().stream().map(LigneCommandeDto::fromEntity).collect(Collectors.toList()))
+                //.ligneCommande(commande.getLigneCommande().stream().map(LigneCommandeDto::fromEntity).collect(Collectors.toList()))
                 .build();
     }
     public static Commande toEntity(CommandeDto commandeDto) {
@@ -44,7 +44,8 @@ public class CommandeDto {
         }
         Commande commande = new Commande();
         commande.setDateCommande(commandeDto.getDateCommande());
-        commande.setLigneCommande(commandeDto.getLigneCommande().stream().map(LigneCommandeDto::toEntity).collect(Collectors.toList()));
+        //TODO A revoir
+        //commande.setLigneCommande(commandeDto.getLigneCommande().stream().map(LigneCommandeDto::toEntity).collect(Collectors.toList()));
         commande.setMontant(commandeDto.getMontant());
         commande.setStatus(commandeDto.getStatus());
         commande.setUtilisateur(UtilisateurDto.toEntity(commandeDto.getUtilisateur()));

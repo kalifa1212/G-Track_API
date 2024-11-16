@@ -41,7 +41,7 @@ public interface VenteApi {
             @ApiResponse(responseCode = "400",description = " Invalide",content = @Content)
     })
     @PostMapping(value = VENTE_ENDPOINT+"payment/nouveau")
-    ResponseEntity<VenteDto> commandePayment(@RequestBody Integer idCommande);
+    ResponseEntity<String> commandePayment(@RequestBody Integer idCommande);
 
     @Operation(summary = "Recherche ",description = "Recherche par ID")
     @SecurityRequirement(name = "Bearer Authentication")
