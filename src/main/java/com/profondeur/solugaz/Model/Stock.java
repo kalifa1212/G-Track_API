@@ -1,5 +1,6 @@
 package com.profondeur.solugaz.Model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.Entity;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
@@ -27,5 +28,9 @@ public class Stock extends AbstractEntity{
 
     @ManyToOne
     private Gaz gaz;
+
+    @JsonIgnore
+    @ManyToOne
+    private Distributeur distributeur;
 
 }

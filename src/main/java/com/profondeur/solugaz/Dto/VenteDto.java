@@ -19,8 +19,8 @@ public class VenteDto {
     private Integer id;
     private Date dateVendu;
     private int quantite;
-    private BigDecimal prix;
-    private BigDecimal prixUnitaire;
+    private int prix;
+    private int prixUnitaire;
     private LocalisationDto localisation;
     private GazDto gaz;
     private DistributeurDto distributeur;

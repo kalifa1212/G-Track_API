@@ -1,16 +1,13 @@
 package com.profondeur.solugaz.Dto;
 
-import com.profondeur.solugaz.Model.Stock;
-import com.profondeur.solugaz.Model.TypeMouvement;
+import com.profondeur.solugaz.Model.Enum.TypeMouvement;
 import com.profondeur.solugaz.Model.Mouvement;
-import jakarta.persistence.ManyToOne;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.util.Date;
-import java.util.stream.Collectors;
 
 @Data
 @Builder

@@ -1,5 +1,6 @@
 package com.profondeur.solugaz.Dto;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.profondeur.solugaz.Model.Privilege;
 import com.profondeur.solugaz.Model.Role;
@@ -18,6 +19,7 @@ public class PrivilegeDto {
     private Long id;
 
     private String name;
+    //@JsonIgnore
     @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private Collection<Role> roles;
     public static PrivilegeDto fromEntity(Privilege privilege) {
