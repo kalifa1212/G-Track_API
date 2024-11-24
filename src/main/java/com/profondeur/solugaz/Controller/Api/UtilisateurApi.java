@@ -23,7 +23,7 @@ public interface UtilisateurApi {
 
     // TODO Non fontionnel
     @Operation(summary = "Authentication ",description = "Connexion")
-    @PostMapping(value = AUTHENTICATION_ENDPOINT+"authenticate",produces = MediaType.APPLICATION_JSON_VALUE)
+    @PostMapping(value = AUTHENTICATION_ENDPOINT+"authenticate")
     ResponseEntity<AuthenticationResponse> authentification(@RequestBody AuthenticationRequest authenticationRequest);
 
     @SecurityRequirement(name = "Bearer Authentication")

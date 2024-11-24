@@ -10,6 +10,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationListener;
 import org.springframework.context.event.ContextRefreshedEvent;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -33,8 +34,8 @@ public class SetupDataLoader implements ApplicationListener<ContextRefreshedEven
     @Autowired
     private PrivilegeRepository privilegeRepository;
 
-//    @Autowired
-//    private PasswordEncoder passwordEncoder;
+    @Autowired
+    private PasswordEncoder passwordEncoder;
 
     // API
 
@@ -109,7 +110,7 @@ public class SetupDataLoader implements ApplicationListener<ContextRefreshedEven
             user1= new Utilisateur();
             user1.setNom(firstName);
             user1.setPrenom(lastName);
-            user1.setMotDePasse(password);
+            user1.setMotDePasse(passwordEncoder.encode(password));
             user1.setEmail(email);
             user1.setEnabled(true);
             user1.setRoles(roles);

@@ -1,5 +1,8 @@
 package com.profondeur.solugaz.Controller;
 
+//import com.profondeur.solugaz.Config.Security.MyUserDetailsService;
+import com.profondeur.solugaz.Config.Security.JwtUtil;
+import com.profondeur.solugaz.Config.Security.MyUserDetailsService;
 import com.profondeur.solugaz.Controller.Api.UtilisateurApi;
 import com.profondeur.solugaz.Dto.UtilisateurDto;
 import com.profondeur.solugaz.Dto.auth.AuthenticationRequest;
@@ -18,8 +21,11 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.Optional;
@@ -32,23 +38,53 @@ public class UtilisateurController implements UtilisateurApi {
 
     private UtilisateurRepository utilisateurRepository;
     private UtilisateurService utilisateurService;
-
+    private AuthenticationManager authenticationManager;
+    @Autowired
+    private MyUserDetailsService userDetailsService;
+    @Autowired
+    private JwtUtil jwtUtil;
     @Autowired
     public UtilisateurController(
             UtilisateurRepository utilisateurRepository,
-            UtilisateurService utilisateurService
+            UtilisateurService utilisateurService,
+            AuthenticationManager authenticationManager
     ) {
         this.utilisateurRepository = utilisateurRepository;
         this.utilisateurService=utilisateurService;
+        this.authenticationManager=authenticationManager;
     }
 
 
-    public ResponseEntity<AuthenticationResponse> authentification(@RequestBody AuthenticationRequest authenticationRequest) {
+    public ResponseEntity<AuthenticationResponse> authentification(AuthenticationRequest authenticationRequestrequest) {
 
-        return ResponseEntity.ok(AuthenticationResponse.builder()
-                .accessToken("")
-                .email("email")
-                .build());
+        final UserDetails userDetails= userDetailsService.loadUserByUsername(authenticationRequestrequest.getLogin());
+
+        Authentication authenticationRequest =
+                UsernamePasswordAuthenticationToken.unauthenticated(
+                        authenticationRequestrequest.getLogin(), authenticationRequestrequest.getPassword());
+        Authentication authenticationResponse =
+                this.authenticationManager.authenticate(authenticationRequest);
+//        SecurityContext context = securityContextHolderStrategy.createEmptyContext();
+//        context.setAuthentication(authenticationResponse);
+//        securityContextHolderStrategy.setContext(context);
+//        securityContextRepository.saveContext(context, request, response);
+        final String jwt = jwtUtil.generateToken(userDetails);
+        final String email=jwtUtil.extractUserName(jwt);
+//          final String jwt = "token";
+//          final String email="mail";
+
+        if (authenticationResponse.isAuthenticated()) {
+            //return new ResponseEntity<>("succeed", HttpStatus.ACCEPTED);
+            return ResponseEntity.ok(AuthenticationResponse.builder().accessToken(jwt).email(email).build());
+        } else {
+            //return new ResponseEntity<>("error", HttpStatus.ACCEPTED);
+            return ResponseEntity.ok(AuthenticationResponse.builder().accessToken(jwt).email(email).build());
+        }
+
+//        return ResponseEntity.ok(AuthenticationResponse.builder()
+//                .accessToken("")
+//                .email("email")
+//                .build());
     }
 
     @Override

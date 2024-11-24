@@ -94,6 +94,11 @@ public class UtilisateurServiceImpl implements UtilisateurService {
     }
 
     @Override
+    public Optional<Utilisateur> UniqueMail(String email) {
+         return utilisateurRepository.findUtilisateurByEmail(email);
+    }
+
+    @Override
     public Page<UtilisateurDto> findAll(Pageable page) {
         // TODO Auto-generated method stub
         return utilisateurRepository.findAll(page).map(UtilisateurDto::fromEntity);
