@@ -5,8 +5,10 @@ import com.profondeur.solugaz.Dto.UtilisateurDto;
 import com.profondeur.solugaz.Exceptions.EntityNotFoundException;
 import com.profondeur.solugaz.Exceptions.ErrorCodes;
 import com.profondeur.solugaz.Exceptions.InvalidEntityException;
+import com.profondeur.solugaz.Model.Localisation;
 import com.profondeur.solugaz.Model.Role;
 import com.profondeur.solugaz.Model.Utilisateur;
+import com.profondeur.solugaz.Repository.LocalisationRepository;
 import com.profondeur.solugaz.Repository.RoleRepository;
 import com.profondeur.solugaz.Repository.UtilisateurRepository;
 import com.profondeur.solugaz.Services.UtilisateurService;
@@ -25,16 +27,20 @@ public class UtilisateurServiceImpl implements UtilisateurService {
     @Autowired
     private UtilisateurRepository utilisateurRepository;
     @Autowired
+    private LocalisationRepository localisationRepository;
+    @Autowired
     private RoleRepository roleRepository;
     // Variable Statique
     String Type_User="USER";
     @Autowired
     public UtilisateurServiceImpl(
             UtilisateurRepository utilisateurRepository,
-            RoleRepository roleRepository
+            RoleRepository roleRepository,
+            LocalisationRepository localisationRepository
     ) {
         this.utilisateurRepository=utilisateurRepository;
         this.roleRepository=roleRepository;
+        this.localisationRepository=localisationRepository;
     }
 
     @Override
@@ -58,6 +64,10 @@ public class UtilisateurServiceImpl implements UtilisateurService {
         Optional<Utilisateur> util = utilisateurRepository.findUtilisateurByEmail(dto.getEmail());
         if(!util.isEmpty()) {
             throw new InvalidEntityException("L'utilisateur Existe deja ", ErrorCodes.UTILISATEUR_ALREADY_EXIST,errors);
+        }
+        Optional<Localisation> local=localisationRepository.findById(dto.getLocalisation().getId());
+        if(local.isEmpty()){
+            throw new InvalidEntityException("Localisation n'existe pas ", ErrorCodes.LOCALISATION_NOT_FOUND,errors);
         }
         String passwd=dto.getMotDePasse();
         dto.setMotDePasse(passwd);
