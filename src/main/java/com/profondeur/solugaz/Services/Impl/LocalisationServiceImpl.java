@@ -1,0 +1,109 @@
+package com.profondeur.solugaz.Services.Impl;
+
+import com.profondeur.solugaz.Dto.LocalisationDto;
+import com.profondeur.solugaz.Exceptions.EntityNotFoundException;
+import com.profondeur.solugaz.Exceptions.ErrorCodes;
+import com.profondeur.solugaz.Exceptions.InvalidEntityException;
+import com.profondeur.solugaz.Model.Localisation;
+import com.profondeur.solugaz.Repository.LocalisationRepository;
+import com.profondeur.solugaz.Services.LocalisationService;
+import com.profondeur.solugaz.Validation.LocalisationValidator;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.stereotype.Service;
+import org.springframework.util.StringUtils;
+
+import java.util.List;
+import java.util.Optional;
+import java.util.stream.Collectors;
+
+@Service
+public class LocalisationServiceImpl implements LocalisationService {
+
+	private LocalisationRepository localisationRepository;
+	
+	@Autowired
+	public LocalisationServiceImpl(
+			LocalisationRepository localisationRepository
+	) {
+		this.localisationRepository=localisationRepository;
+	}
+	
+	@Override
+	public LocalisationDto save(LocalisationDto dto) {
+		//  Auto-generated method stub 
+		List<String> errors = LocalisationValidator.validate(dto);
+		if(!errors.isEmpty()) {
+			//log.error("La localisation est non valid {}",dto);
+			throw new InvalidEntityException("Les information de la  localisation ne sont pas valide ", ErrorCodes.LOCALISATION_NOT_VALID,errors);
+		}
+		//gestion email operationnel
+		//emailService.sendEmail("kalifakalifh12@gmail.com","test","test");
+
+		return LocalisationDto.fromEntity(localisationRepository.save(LocalisationDto.toEntity(dto)));
+	}
+
+	@Override
+	public LocalisationDto findById(Integer id) {
+		//  Auto-generated method stub
+		if(id==null) {
+			throw new InvalidEntityException("L'id entre est NULL");
+		}
+		Optional<Localisation> localisation= localisationRepository.findById(id);
+		
+		return Optional.of(LocalisationDto.fromEntity(localisation.get())).orElseThrow(() ->
+				new EntityNotFoundException(
+						"Aucune mosque avec l'id ="+id+"n'a ete trouver dans la BD",
+						ErrorCodes.LOCALISATION_NOT_FOUND)
+		);
+	}
+
+	@Override
+	public Page<LocalisationDto> findLocalisationByVille(String ville, Pageable page) {
+		//  Auto-generated method stub
+		if(!StringUtils.hasLength(ville)) {
+			throw new InvalidEntityException("La ville entrée est NULL");
+		}
+		//Optional<Localisation> localisation= localisationRepository.findLocalisationByVille(ville);
+		
+		return this.localisationRepository.findLocalisationByVilleLike(ville,page)
+				.map(LocalisationDto::fromEntity);
+	}
+
+	@Override
+	public List<LocalisationDto> findLocalisationByQuartier(String quartier) {
+		//  Auto-generated method stub
+		if(!StringUtils.hasLength(quartier)) {
+			throw new InvalidEntityException("Le quartier entrée est NULL");
+		}
+		return null;
+	}
+
+	@Override
+	public Page<LocalisationDto> findAllByPages(Pageable page) {
+		//  Auto-generated method stub
+		return localisationRepository.findAll(page)
+				.map(LocalisationDto::fromEntity);
+	}
+
+	@Override
+	public List<LocalisationDto> findAll() {
+		//  Auto-generated method stub
+		return localisationRepository.findAll()
+				.stream().map(LocalisationDto::fromEntity)
+				.collect(Collectors.toList());
+	}
+
+	@Override
+	public void delete(Integer id) {
+		//  Auto-generated method stub
+		if(id==null) {
+			throw new InvalidEntityException("L'id entre est NULL");
+		}
+		
+		localisationRepository.deleteById(id);
+	}
+	
+
+}

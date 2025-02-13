@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>DATABASE</ID>
+  <OriginalElement>2701f018-012d-4c14-b292-e078e867ef37.TABLE:solugaz.public.dataset</OriginalElement>
+  <nodes>
+    <node x="591.5368475329208" y="58.11867364746945">2701f018-012d-4c14-b292-e078e867ef37.TABLE:solugaz.public.utilisateur</node>
+    <node x="938.5752419482785" y="222.0">2701f018-012d-4c14-b292-e078e867ef37.TABLE:solugaz.public.role</node>
+    <node x="-146.0" y="549.0">2701f018-012d-4c14-b292-e078e867ef37.TABLE:solugaz.public.stock</node>
+    <node x="-146.0" y="874.0">2701f018-012d-4c14-b292-e078e867ef37.TABLE:solugaz.public.mouvement</node>
+    <node x="171.61363636363626" y="112.0">2701f018-012d-4c14-b292-e078e867ef37.TABLE:solugaz.public.distributeur</node>
+    <node x="241.54292929292922" y="527.0">2701f018-012d-4c14-b292-e078e867ef37.TABLE:solugaz.public.vente</node>
+    <node x="-140.38636363636374" y="167.0">2701f018-012d-4c14-b292-e078e867ef37.TABLE:solugaz.public.gaz</node>
+    <node x="811.2816119308264" y="637.5">2701f018-012d-4c14-b292-e078e867ef37.TABLE:solugaz.public.users_roles</node>
+    <node x="1125.6136363636363" y="-215.0">2701f018-012d-4c14-b292-e078e867ef37.TABLE:solugaz.public.dataset</node>
+    <node x="1084.3636363636363" y="625.3813263525306">2701f018-012d-4c14-b292-e078e867ef37.TABLE:solugaz.public.roles_privileges</node>
+    <node x="327.5" y="-215.0">2701f018-012d-4c14-b292-e078e867ef37.TABLE:solugaz.public.localisation</node>
+    <node x="1125.6136363636363" y="222.0">2701f018-012d-4c14-b292-e078e867ef37.TABLE:solugaz.public.privilege</node>
+    <node x="-146.0" y="1172.0">2701f018-012d-4c14-b292-e078e867ef37.TABLE:solugaz.public.spatial_ref_sys</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="2701f018-012d-4c14-b292-e078e867ef37.TABLE:solugaz.public.stock" target="2701f018-012d-4c14-b292-e078e867ef37.TABLE:solugaz.public.gaz" relationship="REFERENCES">
+      <point x="-73.0" y="-126.5" />
+      <point x="-73.0" y="506.0" />
+      <point x="5.61363636363626" y="506.0" />
+      <point x="0.0" y="93.5" />
+    </edge>
+    <edge source="2701f018-012d-4c14-b292-e078e867ef37.TABLE:solugaz.public.roles_privileges" target="2701f018-012d-4c14-b292-e078e867ef37.TABLE:solugaz.public.privilege" relationship="REFERENCES">
+      <point x="35.75" y="-38.0" />
+      <point x="0.0" y="38.5" />
+    </edge>
+    <edge source="2701f018-012d-4c14-b292-e078e867ef37.TABLE:solugaz.public.vente" target="2701f018-012d-4c14-b292-e078e867ef37.TABLE:solugaz.public.localisation" relationship="REFERENCES">
+      <point x="97.33333333333333" y="-148.5" />
+      <point x="484.8762626262626" y="506.0" />
+      <point x="474.11363636363626" y="506.0" />
+      <point x="0.0" y="104.5" />
+    </edge>
+    <edge source="2701f018-012d-4c14-b292-e078e867ef37.TABLE:solugaz.public.stock" target="2701f018-012d-4c14-b292-e078e867ef37.TABLE:solugaz.public.distributeur" relationship="REFERENCES">
+      <point x="73.0" y="-126.5" />
+      <point x="73.0" y="496.0" />
+      <point x="317.61363636363626" y="496.0" />
+      <point x="0.0" y="148.5" />
+    </edge>
+    <edge source="2701f018-012d-4c14-b292-e078e867ef37.TABLE:solugaz.public.distributeur" target="2701f018-012d-4c14-b292-e078e867ef37.TABLE:solugaz.public.localisation" relationship="REFERENCES">
+      <point x="0.0" y="-148.5" />
+      <point x="317.61363636363626" y="20.0" />
+      <point x="473.5" y="20.0" />
+      <point x="0.0" y="104.5" />
+    </edge>
+    <edge source="2701f018-012d-4c14-b292-e078e867ef37.TABLE:solugaz.public.users_roles" target="2701f018-012d-4c14-b292-e078e867ef37.TABLE:solugaz.public.utilisateur" relationship="REFERENCES">
+      <point x="-28.25" y="-38.0" />
+      <point x="839.5316119308264" y="506.0" />
+      <point x="737.5368475329208" y="506.0" />
+      <point x="0.0" y="214.5" />
+    </edge>
+    <edge source="2701f018-012d-4c14-b292-e078e867ef37.TABLE:solugaz.public.roles_privileges" target="2701f018-012d-4c14-b292-e078e867ef37.TABLE:solugaz.public.role" relationship="REFERENCES">
+      <point x="-35.75" y="-38.0" />
+      <point x="1120.1136363636363" y="506.0" />
+      <point x="1004.5752419482785" y="506.0" />
+      <point x="0.0" y="38.5" />
+    </edge>
+    <edge source="2701f018-012d-4c14-b292-e078e867ef37.TABLE:solugaz.public.vente" target="2701f018-012d-4c14-b292-e078e867ef37.TABLE:solugaz.public.gaz" relationship="REFERENCES">
+      <point x="-97.33333333333331" y="-148.5" />
+      <point x="290.20959595959596" y="506.0" />
+      <point x="5.61363636363626" y="506.0" />
+      <point x="0.0" y="93.5" />
+    </edge>
+    <edge source="2701f018-012d-4c14-b292-e078e867ef37.TABLE:solugaz.public.vente" target="2701f018-012d-4c14-b292-e078e867ef37.TABLE:solugaz.public.distributeur" relationship="REFERENCES">
+      <point x="0.0" y="-148.5" />
+      <point x="387.5429292929292" y="496.0" />
+      <point x="317.61363636363626" y="496.0" />
+      <point x="0.0" y="148.5" />
+    </edge>
+    <edge source="2701f018-012d-4c14-b292-e078e867ef37.TABLE:solugaz.public.utilisateur" target="2701f018-012d-4c14-b292-e078e867ef37.TABLE:solugaz.public.localisation" relationship="REFERENCES">
+      <point x="0.0" y="-214.5" />
+      <point x="737.5368475329208" y="20.0" />
+      <point x="473.5" y="20.0" />
+      <point x="0.0" y="104.5" />
+    </edge>
+    <edge source="2701f018-012d-4c14-b292-e078e867ef37.TABLE:solugaz.public.users_roles" target="2701f018-012d-4c14-b292-e078e867ef37.TABLE:solugaz.public.role" relationship="REFERENCES">
+      <point x="28.25" y="-38.0" />
+      <point x="896.0316119308264" y="506.0" />
+      <point x="1004.5752419482785" y="506.0" />
+      <point x="0.0" y="38.5" />
+    </edge>
+    <edge source="2701f018-012d-4c14-b292-e078e867ef37.TABLE:solugaz.public.mouvement" target="2701f018-012d-4c14-b292-e078e867ef37.TABLE:solugaz.public.stock" relationship="REFERENCES">
+      <point x="0.0" y="-126.5" />
+      <point x="0.0" y="126.5" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic" zoom="0.3696774193548387" showDependencies="false" x="593.4999999999999" y="550.0" />
+  <SelectedNodes>
+    <node>2701f018-012d-4c14-b292-e078e867ef37.TABLE:solugaz.public.vente</node>
+  </SelectedNodes>
+  <Categories>
+    <Category>Columns</Category>
+    <Category>Comments</Category>
+    <Category>Key columns</Category>
+    <Category>Virtual foreign keys</Category>
+  </Categories>
+</Diagram>
+

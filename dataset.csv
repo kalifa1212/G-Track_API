@@ -1,0 +1,201 @@
+id,date,evenement_locaux,fabricant,quantite_vendu,region,saison,taille_du_foyer,type_gaz
+1,2015-06-01,fete tabaski,0,415,nord-ouest,seche,6,2
+2,2013-04-09,pacque,0,473,sud-ouest,pluvieuse,12,0
+3,2022-08-20,decembre,2,153,extreme-nord,seche,4,1
+4,2019-10-13,fete tabaski,2,952,est,pluvieuse,1,2
+5,2011-11-06,fete tabaski,2,241,nord-ouest,transition,5,2
+6,2013-06-22,fete tabaski,1,878,sud-ouest,transition,11,1
+7,2016-01-07,decembre,2,780,extreme-nord,transition,7,1
+8,2013-10-27,fete tabaski,2,400,centre,pluvieuse,9,1
+9,2019-06-08,decembre,2,961,ouest,transition,10,1
+10,2013-06-06,decembre,0,341,ouest,seche,8,0
+11,2015-07-19,fete tabaski,2,780,sud,pluvieuse,3,1
+12,2016-09-13,fete tabaski,1,659,centre,seche,6,2
+13,2014-11-30,decembre,0,29,centre,pluvieuse,4,2
+14,2019-01-02,pacque,2,36,sud-ouest,seche,9,1
+15,2024-08-22,fete tabaski,0,855,centre,pluvieuse,4,1
+16,2017-12-21,decembre,0,6,extreme-nord,pluvieuse,12,0
+17,2010-11-16,decembre,1,100,sud,pluvieuse,2,0
+18,2012-09-10,fete tabaski,0,926,nord-ouest,transition,11,0
+19,2010-03-30,decembre,2,859,centre,seche,10,1
+20,2017-09-07,fete tabaski,2,596,ouest,pluvieuse,6,1
+21,2010-05-16,pacque,1,860,sud-ouest,seche,5,1
+22,2022-08-13,decembre,1,676,sud,pluvieuse,11,2
+23,2013-07-21,fete tabaski,1,751,sud-ouest,seche,8,0
+24,2019-12-21,decembre,1,176,extreme-nord,pluvieuse,4,0
+25,2017-09-24,decembre,2,409,sud-ouest,seche,2,2
+26,2015-03-29,pacque,1,776,nord,pluvieuse,1,2
+27,2017-07-06,pacque,0,33,nord-ouest,seche,8,1
+28,2023-12-02,decembre,2,596,ouest,transition,5,0
+29,2013-05-28,fete tabaski,0,187,litorale,transition,11,2
+30,2017-06-22,fete tabaski,0,578,litorale,seche,6,0
+31,2016-03-27,fete tabaski,0,494,nord-ouest,pluvieuse,3,1
+32,2012-03-06,decembre,1,289,sud,pluvieuse,7,1
+33,2023-10-07,fete tabaski,0,687,nord-ouest,seche,4,1
+34,2016-11-05,fete tabaski,0,57,nord-ouest,seche,11,1
+35,2019-12-14,decembre,1,524,adamaoua,transition,5,1
+36,2011-05-06,pacque,2,344,nord-ouest,transition,9,2
+37,2023-04-19,pacque,2,686,nord-ouest,seche,11,0
+38,2019-08-20,decembre,2,952,ouest,seche,2,0
+39,2019-07-22,fete tabaski,1,338,adamaoua,pluvieuse,1,2
+40,2018-12-04,fete tabaski,0,786,centre,seche,2,1
+41,2011-02-09,pacque,0,275,ouest,pluvieuse,5,2
+42,2024-12-07,fete tabaski,0,514,centre,transition,4,0
+43,2021-06-07,fete tabaski,2,962,sud,seche,2,1
+44,2022-10-15,decembre,0,982,est,transition,3,2
+45,2024-06-01,fete tabaski,1,366,adamaoua,pluvieuse,2,1
+46,2018-08-26,pacque,1,891,adamaoua,pluvieuse,9,1
+47,2019-02-07,fete tabaski,0,366,litorale,transition,7,1
+48,2024-08-05,decembre,2,988,est,seche,8,0
+49,2016-02-03,fete tabaski,2,447,nord-ouest,seche,1,1
+50,2010-05-19,pacque,2,733,litorale,seche,5,2
+51,2015-10-10,decembre,0,13,sud-ouest,transition,1,1
+52,2010-11-15,fete tabaski,1,884,est,pluvieuse,8,0
+53,2023-02-10,pacque,2,691,adamaoua,transition,5,0
+54,2024-08-30,fete tabaski,1,226,litorale,pluvieuse,12,0
+55,2020-01-28,decembre,0,256,nord,transition,11,2
+56,2017-01-27,fete tabaski,1,739,extreme-nord,seche,12,0
+57,2023-01-05,decembre,0,663,nord-ouest,pluvieuse,1,1
+58,2016-05-15,decembre,0,771,sud,pluvieuse,1,2
+59,2019-01-10,pacque,1,408,sud-ouest,transition,4,0
+60,2023-02-07,decembre,1,8,litorale,transition,12,2
+61,2014-07-23,decembre,1,189,nord-ouest,pluvieuse,3,2
+62,2019-03-14,pacque,1,316,nord-ouest,pluvieuse,5,0
+63,2021-02-13,pacque,1,967,nord-ouest,pluvieuse,7,2
+64,2024-01-02,pacque,1,411,sud,pluvieuse,9,2
+65,2020-02-04,fete tabaski,2,488,centre,transition,11,2
+66,2020-03-28,decembre,0,902,nord-ouest,transition,6,0
+67,2018-09-24,pacque,1,104,sud,transition,3,2
+68,2020-08-13,fete tabaski,2,114,est,transition,10,1
+69,2021-03-14,decembre,2,705,nord,transition,6,0
+70,2018-03-28,fete tabaski,0,827,litorale,seche,10,0
+71,2016-12-24,pacque,0,71,sud-ouest,seche,9,1
+72,2021-05-10,fete tabaski,0,932,extreme-nord,pluvieuse,10,1
+73,2015-04-21,fete tabaski,1,443,sud-ouest,pluvieuse,9,1
+74,2014-03-11,fete tabaski,2,664,ouest,pluvieuse,5,1
+75,2014-04-30,fete tabaski,2,436,adamaoua,seche,6,1
+76,2024-02-03,fete tabaski,2,610,sud-ouest,pluvieuse,9,1
+77,2015-09-21,fete tabaski,2,174,sud-ouest,transition,9,2
+78,2017-03-31,decembre,2,436,nord,seche,1,2
+79,2018-02-26,decembre,1,710,ouest,pluvieuse,1,0
+80,2016-05-16,decembre,0,357,litorale,transition,4,1
+81,2022-04-24,decembre,1,107,ouest,transition,7,1
+82,2015-10-15,pacque,2,708,est,pluvieuse,7,1
+83,2017-07-11,decembre,0,85,adamaoua,pluvieuse,9,1
+84,2022-01-20,fete tabaski,1,744,sud-ouest,pluvieuse,10,0
+85,2016-09-12,fete tabaski,2,133,est,transition,10,2
+86,2017-03-19,fete tabaski,2,929,adamaoua,pluvieuse,10,2
+87,2019-04-13,pacque,1,731,nord,pluvieuse,2,2
+88,2015-06-01,pacque,1,725,sud-ouest,seche,7,1
+89,2017-11-29,fete tabaski,2,50,nord-ouest,pluvieuse,9,0
+90,2013-04-07,pacque,2,189,adamaoua,pluvieuse,2,1
+91,2011-03-31,pacque,2,899,centre,pluvieuse,2,0
+92,2014-09-23,pacque,0,332,nord-ouest,pluvieuse,6,1
+93,2010-06-21,pacque,0,771,extreme-nord,seche,5,1
+94,2016-07-30,decembre,0,897,extreme-nord,pluvieuse,12,0
+95,2011-08-29,fete tabaski,0,692,extreme-nord,seche,11,2
+96,2019-08-09,fete tabaski,1,301,centre,pluvieuse,6,0
+97,2018-09-12,decembre,0,908,litorale,transition,9,0
+98,2018-03-04,decembre,0,528,sud-ouest,seche,10,2
+99,2010-04-17,pacque,0,230,est,transition,5,1
+100,2023-03-18,fete tabaski,0,222,sud,pluvieuse,1,2
+101,2010-10-06,pacque,2,888,nord,transition,3,2
+102,2012-01-01,decembre,0,396,nord,transition,8,2
+103,2024-10-20,decembre,2,637,est,transition,4,0
+104,2022-06-13,decembre,0,812,nord-ouest,pluvieuse,4,1
+105,2020-03-03,fete tabaski,0,244,ouest,seche,9,2
+106,2018-07-27,pacque,2,698,litorale,seche,12,1
+107,2012-01-03,fete tabaski,2,134,centre,transition,9,1
+108,2010-10-06,fete tabaski,1,276,est,pluvieuse,12,2
+109,2015-12-16,decembre,1,880,nord-ouest,pluvieuse,1,1
+110,2017-07-04,pacque,1,562,nord,transition,11,2
+111,2024-12-21,fete tabaski,2,383,nord,seche,1,2
+112,2010-09-11,decembre,1,253,ouest,pluvieuse,4,2
+113,2012-10-12,fete tabaski,0,462,ouest,seche,9,0
+114,2014-04-18,decembre,2,35,sud,pluvieuse,10,2
+115,2022-03-27,decembre,2,390,nord-ouest,seche,6,0
+116,2018-08-13,pacque,0,418,extreme-nord,seche,5,2
+117,2014-06-25,decembre,1,99,nord-ouest,seche,6,1
+118,2020-05-08,pacque,1,107,nord-ouest,pluvieuse,6,0
+119,2017-12-25,fete tabaski,2,692,extreme-nord,transition,2,0
+120,2018-06-05,pacque,1,287,centre,pluvieuse,1,2
+121,2019-12-07,fete tabaski,1,732,nord,pluvieuse,1,0
+122,2013-05-04,fete tabaski,1,23,adamaoua,seche,5,1
+123,2014-06-14,fete tabaski,1,790,est,pluvieuse,1,2
+124,2020-02-26,decembre,1,339,extreme-nord,transition,12,2
+125,2012-07-21,decembre,0,844,nord-ouest,transition,4,1
+126,2024-10-29,fete tabaski,0,325,nord,transition,1,1
+127,2015-11-30,fete tabaski,1,975,sud,transition,7,0
+128,2014-11-17,decembre,1,333,centre,seche,3,1
+129,2012-02-27,fete tabaski,0,960,nord,pluvieuse,2,2
+130,2023-11-06,decembre,2,219,nord,transition,11,0
+131,2014-06-12,decembre,0,840,nord-ouest,transition,4,1
+132,2011-01-11,decembre,0,598,est,seche,8,1
+133,2023-12-31,fete tabaski,2,280,centre,seche,12,2
+134,2020-05-13,fete tabaski,0,517,sud,pluvieuse,4,0
+135,2024-03-28,pacque,1,89,sud,transition,10,1
+136,2012-03-30,pacque,0,965,litorale,transition,10,2
+137,2018-03-30,decembre,2,636,extreme-nord,seche,12,2
+138,2013-01-11,pacque,1,375,sud-ouest,seche,7,1
+139,2019-11-19,decembre,2,77,extreme-nord,pluvieuse,3,1
+140,2010-08-07,decembre,1,554,nord-ouest,transition,7,2
+141,2013-06-05,pacque,2,467,nord,pluvieuse,7,0
+142,2020-04-28,fete tabaski,0,901,centre,seche,1,0
+143,2022-09-03,fete tabaski,1,148,est,seche,6,2
+144,2015-03-02,fete tabaski,0,570,sud-ouest,seche,10,0
+145,2021-05-23,pacque,1,585,est,transition,3,1
+146,2016-11-12,fete tabaski,0,574,est,pluvieuse,10,0
+147,2011-10-01,decembre,1,759,nord,transition,9,1
+148,2018-05-11,decembre,0,373,sud-ouest,seche,7,2
+149,2024-01-24,fete tabaski,2,273,sud,seche,11,2
+150,2022-08-04,fete tabaski,1,751,ouest,seche,3,1
+151,2023-11-06,fete tabaski,2,21,nord-ouest,transition,12,1
+152,2013-09-19,pacque,2,230,ouest,transition,6,1
+153,2014-06-16,fete tabaski,2,513,sud-ouest,transition,3,2
+154,2017-09-20,pacque,2,229,litorale,transition,12,1
+155,2011-09-09,pacque,1,153,est,seche,3,0
+156,2014-10-17,fete tabaski,0,685,est,seche,1,0
+157,2016-06-20,pacque,1,916,sud-ouest,seche,10,0
+158,2013-03-06,decembre,2,559,nord-ouest,seche,9,2
+159,2024-01-22,decembre,2,850,extreme-nord,seche,3,1
+160,2012-03-08,fete tabaski,2,439,ouest,pluvieuse,10,2
+161,2023-08-18,decembre,0,477,litorale,pluvieuse,8,2
+162,2018-04-18,pacque,2,390,nord-ouest,seche,12,2
+163,2022-03-29,fete tabaski,0,110,ouest,transition,2,0
+164,2011-11-03,decembre,1,816,est,pluvieuse,3,0
+165,2021-10-23,decembre,1,950,ouest,seche,4,0
+166,2021-01-03,fete tabaski,0,132,centre,transition,6,2
+167,2018-05-20,fete tabaski,1,725,centre,transition,10,2
+168,2019-02-20,pacque,2,368,nord,transition,7,2
+169,2023-05-17,pacque,1,408,extreme-nord,seche,7,1
+170,2014-10-07,decembre,1,532,adamaoua,seche,12,0
+171,2010-07-20,pacque,1,417,nord,transition,9,2
+172,2022-09-29,fete tabaski,0,266,adamaoua,seche,4,2
+173,2010-10-21,pacque,2,511,sud-ouest,pluvieuse,8,2
+174,2018-04-16,pacque,2,983,extreme-nord,transition,5,2
+175,2012-01-23,pacque,0,728,ouest,seche,1,0
+176,2013-10-23,pacque,0,6,nord,seche,3,1
+177,2022-10-03,pacque,2,328,extreme-nord,transition,8,0
+178,2020-06-11,fete tabaski,1,222,adamaoua,transition,9,2
+179,2016-06-28,decembre,2,870,litorale,seche,5,2
+180,2020-11-15,decembre,2,417,litorale,transition,2,2
+181,2017-10-01,fete tabaski,2,139,sud,pluvieuse,3,2
+182,2023-09-09,decembre,2,680,centre,transition,4,1
+183,2014-04-25,decembre,1,809,nord,pluvieuse,8,0
+184,2021-08-04,fete tabaski,2,399,est,transition,5,0
+185,2013-05-04,pacque,1,774,extreme-nord,seche,4,0
+186,2023-08-16,fete tabaski,0,217,est,transition,3,1
+187,2020-10-17,decembre,0,239,extreme-nord,pluvieuse,2,1
+188,2020-05-23,pacque,1,517,est,pluvieuse,8,0
+189,2021-03-04,decembre,2,944,ouest,seche,1,1
+190,2019-06-27,decembre,1,994,centre,pluvieuse,5,2
+191,2023-05-14,pacque,0,649,sud-ouest,transition,1,2
+192,2023-02-12,pacque,1,344,ouest,pluvieuse,3,1
+193,2017-01-02,decembre,1,756,ouest,transition,6,2
+194,2021-11-07,pacque,1,551,sud-ouest,transition,6,0
+195,2015-11-30,pacque,2,15,litorale,pluvieuse,10,0
+196,2014-11-03,decembre,1,615,sud,pluvieuse,6,2
+197,2017-01-25,pacque,0,67,nord-ouest,transition,5,0
+198,2014-04-16,fete tabaski,2,613,extreme-nord,transition,1,1
+199,2017-01-03,fete tabaski,2,462,ouest,transition,11,1
+200,2021-01-18,decembre,2,376,nord-ouest,pluvieuse,11,1
