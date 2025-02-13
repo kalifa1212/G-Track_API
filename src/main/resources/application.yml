@@ -5,9 +5,9 @@ spring:
       password: admin
   ##  database info
   datasource:
-    url: jdbc:postgresql://localhost:5432/solugaz
-    username: postgres
-    password: dancali
+    url: jdbc:postgresql://localhost:5432/${DB_NAME}
+    username: ${DB_USERNAME}
+    password: ${DB_PASSWORD}
     driver-class-name: org.postgresql.Driver
   application:
     name: Solugaz
